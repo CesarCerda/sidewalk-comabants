@@ -1,5 +1,5 @@
 {
-    "name": "sidewalk comabants",
+    "name": "sidewalk comabants good",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -9,7 +9,8 @@
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
         "Color Fading": "github:jwunderl/pxt-color#v0.2.2",
         "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
-        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0"
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
     },
     "files": [
         "main.blocks",
@@ -31,5 +32,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
