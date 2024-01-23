@@ -7,7 +7,7 @@ controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.P
         scene.setBackgroundImage(assets.image`Map choice screen`)
         sprites.destroy(start_up)
         sprites.destroy(button)
-        pause(100)
+        pause(5000)
         map_choice = game.askForNumber("Map 1 or 2", 1)
         info.player1.setScore(0)
     }
