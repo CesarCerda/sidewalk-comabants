@@ -77,7 +77,12 @@ controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
     }
     // Donovan put your map here
     if (character_choice == 2) {
-    	
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+        assets.animation`Kuji punch`,
+        100,
+        false
+        )
     }
 })
 controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
@@ -89,6 +94,10 @@ controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
         100,
         false
         )
+    }
+    // Donovan put your map here
+    if (character_choice == 2) {
+    	
     }
 })
 let character_choice = 0
