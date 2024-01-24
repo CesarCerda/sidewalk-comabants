@@ -534,6 +534,26 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
         )
     }
 })
+controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . 2 2 2 . . . . . 
+        . . . . . . . . 2 2 2 2 2 . . . 
+        . . . . . . . . 2 2 2 2 2 2 2 . 
+        2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+        2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+        2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+        . . . . . . . . 2 2 2 2 2 2 2 . 
+        . . . . . . . . 2 2 2 2 2 . . . 
+        . . . . . . . . 2 2 2 . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), 50, 50)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.player2, function (sprite, otherSprite) {
     while (info.score() == 0) {
         sprite.setPosition(6, 120)
@@ -636,7 +656,28 @@ controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
         )
     }
 })
+controller.player1.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . a a a a a a a . . . . 
+        . . . a a a a a a a a a a a . . 
+        . . a a a a a a a a a a a a a . 
+        . . a a a a a a a a a a a a a . 
+        . a a a a a a a a a a a a a a a 
+        . a a a a a a a a a a a a a a a 
+        . a a a a a a a a a a a a a a a 
+        . a a a a a a a a a a a a a a a 
+        . a a a a a a a a a a a a a a a 
+        . a a a a a a a a a a a a a a a 
+        . a a a a a a a a a a a a a a a 
+        . . a a a a a a a a a a a a a . 
+        . . a a a a a a a a a a a a a . 
+        . . . a a a a a a a a a a a . . 
+        . . . . . a a a a a a a . . . . 
+        `, mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), 50, 50)
+})
 let map_choice = 0
+let projectile: Sprite = null
 let character_choice = 0
 let button: Sprite = null
 let start_up: Sprite = null
