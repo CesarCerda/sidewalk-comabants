@@ -3,6 +3,63 @@ namespace SpriteKind {
     export const animation = SpriteKind.create()
     export const player2 = SpriteKind.create()
 }
+controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    // Donovan put your map here
+    if (character_choice == 1) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+        assets.animation`no punch`,
+        100,
+        false
+        )
+    }
+    // Donovan put your map here
+    if (character_choice == 2) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+        assets.animation`Kuji punch`,
+        100,
+        false
+        )
+    }
+})
+controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    // Donovan put your map here
+    if (character_choice == 2) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+        assets.animation`NOJO OTHER PUNCH`,
+        100,
+        false
+        )
+    }
+    // Donovan put your map here
+    if (character_choice == 1) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+        [img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `],
+        500,
+        false
+        )
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.player2, function (sprite, otherSprite) {
     while (info.score() == 0) {
         sprite.setPosition(6, 102)
@@ -65,26 +122,6 @@ controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.P
     }
     mp.setPlayerIndicatorsVisible(true)
 })
-controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
-    // Donovan put your map here
-    if (character_choice == 1) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`no punch`,
-        100,
-        false
-        )
-    }
-    // Donovan put your map here
-    if (character_choice == 2) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`Kuji punch`,
-        100,
-        false
-        )
-    }
-})
 controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 1) {
@@ -97,11 +134,16 @@ controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
     }
     // Donovan put your map here
     if (character_choice == 2) {
-    	
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+        assets.animation`KUJI KICK`,
+        100,
+        false
+        )
     }
 })
-let character_choice = 0
 let map_choice = 0
+let character_choice = 0
 let button: Sprite = null
 let start_up: Sprite = null
 scene.setBackgroundImage(assets.image`starting scree`)
