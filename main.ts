@@ -14,7 +14,7 @@ controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
         )
     }
     // Donovan put your map here
-    if (character_choice == 1) {
+    if (character_choice == 2) {
         animation.runImageAnimation(
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
         assets.animation`Kuji punch`,
