@@ -57,7 +57,6 @@ function defeat (mySprite: Sprite) {
 }
 controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.Pressed, function () {
     if (info.score() == 1000) {
-        sprites.destroy(powerups)
         scene.setBackgroundImage(assets.image`Map choice screen`)
         sprites.destroy(start_up)
         sprites.destroy(button)
@@ -304,7 +303,6 @@ let powerups: Sprite = null
 let mySprite: Sprite = null
 let player_1 = 0
 let map_choice = 0
-let powerups: Sprite = null
 let character_choice = 0
 let button: Sprite = null
 let start_up: Sprite = null
