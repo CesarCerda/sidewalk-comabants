@@ -63,6 +63,8 @@ controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.P
         pause(2000)
         map_choice = game.askForNumber("Map 1 or 2", 1)
         info.player1.setScore(0)
+        scene.setBackgroundImage(assets.image`Character choice`)
+        pause(2000)
         character_choice = game.askForNumber("character 1 or 2", 1)
         // Donovan put your map here
         if (character_choice == 1) {
@@ -299,7 +301,6 @@ controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
         )
     }
 })
-let powerups: Sprite = null
 let mySprite: Sprite = null
 let player_1 = 0
 let map_choice = 0
