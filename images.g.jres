@@ -29,6 +29,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "nojo"
     },
+    "image5": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREBAAAAECIiIhIAAAAQIiIiEgAAABAiIiISAAAAECISIhIAAAAQIhEhEgAAABAiEiISAAAAECIiIhIAAAAQIiIiEgAAABAiIiISAAAAABEREQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "medkit"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
