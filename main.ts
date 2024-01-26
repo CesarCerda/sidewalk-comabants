@@ -19,7 +19,7 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
         animation.runImageAnimation(
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
         assets.animation`KUJI OTHER KICK`,
-        500,
+        100,
         false
         )
     }
