@@ -24,6 +24,31 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
         )
     }
 })
+controller.player1.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
+    // Donovan put your map here
+    if (character_choice == 2) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+        assets.animation`Kuji jump`,
+        500,
+        false
+        )
+    }
+    // Donovan put your map here
+    if (character_choice == 1) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+        assets.animation`Nojo jump`,
+        500,
+        false
+        )
+    }
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = -100
+    pause(485)
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = 100
+    pause(500)
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = 0
+})
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
@@ -58,6 +83,31 @@ function defeat (mySprite: Sprite) {
     }
     return 0
 }
+controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
+    // Donovan put your map here
+    if (character_choice == 2) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+        assets.animation`Nojo jump`,
+        500,
+        false
+        )
+    }
+    // Donovan put your map here
+    if (character_choice == 1) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+        assets.animation`Kuji jump`,
+        500,
+        false
+        )
+    }
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).vy = -100
+    pause(485)
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).vy = 100
+    pause(500)
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).vy = 0
+})
 controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.Pressed, function () {
     if (info.score() == 1000) {
         sprites.destroy(powerups)
