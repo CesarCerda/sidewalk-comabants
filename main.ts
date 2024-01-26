@@ -185,6 +185,7 @@ controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.P
             ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
             ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
             `)
+        pause(2000)
         character_choice = game.askForNumber("character 1 or 2", 1)
         // Donovan put your map here
         if (character_choice == 1) {
