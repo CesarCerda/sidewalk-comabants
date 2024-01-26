@@ -69,6 +69,21 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "charactr choice"
     },
+    "image13": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAiIiICAAAAICZmZmJAAAAmJmZmZkIAICZiZmZmYkAgJmJmJmIiQCAmZmZmZmJAICZmZmZmYkAgJmZmYmZiQCAmYmYiZmJAICZiJmJmYkAAJiZmZmZCAAAgJmZmYkAAAAAiIiICAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "BLUE"
+    },
+    "image14": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAIiIiAgAAACAiIiIiAAAAIiIkIiQCACAiQiQiRCIAQCQiIiJCIgAgJCIiIkIkACAiIkQiIiIAICJCJCIiIgAgQiIiQiIiACBCIiJCIiIAAEIkIkIiAgAAICQiIiIAAAAAIiIiAgAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "RED"
+    },
+    "image15": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALsAAAAAAACwuwsAAAAAALvdCwAAAACw3d27AAAAALC9vb0AAAAAsN3bvQAAAACw2927AAAAAADb2wsAAAAAALC9CwAAAAAAsN0LAAAAAAAAuwsAAAAAAACwAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "rock throw"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

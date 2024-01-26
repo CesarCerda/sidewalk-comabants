@@ -1143,6 +1143,63 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 `;
+            case "image13":
+            case "BLUE":return img`
+. . . . . . . . . . . . . . . . 
+. . . . 8 8 8 8 8 8 8 . . . . . 
+. . . 8 9 9 9 9 9 9 9 8 . . . . 
+. . 8 9 9 9 9 9 9 9 9 9 8 . . . 
+. 8 9 9 9 9 9 9 9 9 8 9 9 8 . . 
+. 8 9 9 8 8 9 9 9 8 8 9 9 8 . . 
+. 8 9 9 9 8 9 9 9 8 9 9 9 8 . . 
+. 8 9 9 9 9 9 9 9 9 9 9 9 8 . . 
+. 8 9 9 9 9 9 9 9 9 9 9 9 8 . . 
+. 8 9 9 9 9 9 9 8 8 8 9 9 8 . . 
+. 8 9 9 9 8 9 9 9 9 9 9 9 8 . . 
+. . 8 9 9 8 9 9 9 9 9 9 8 . . . 
+. . . 8 9 9 9 9 9 9 9 8 . . . . 
+. . . . 8 8 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "image14":
+            case "RED":return img`
+. . . . . . . . . . . . . . . . 
+. . . . 2 4 2 2 2 2 2 . . . . . 
+. . . 2 2 4 4 2 2 2 2 2 . . . . 
+. . 2 2 2 2 2 2 2 4 4 4 2 . . . 
+. 2 2 2 2 2 2 2 2 2 2 4 4 2 . . 
+. 2 2 2 4 2 2 2 4 2 2 2 2 2 . . 
+. 2 2 4 4 2 2 4 4 2 2 2 2 2 . . 
+. 2 2 2 2 2 2 4 2 2 2 2 2 2 . . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+. 2 2 2 2 2 2 2 2 4 4 4 2 2 . . 
+. 2 2 4 4 2 2 2 2 2 2 2 2 2 . . 
+. . 2 2 4 4 4 2 2 2 2 2 2 . . . 
+. . . 2 2 2 4 2 2 2 2 2 . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "image15":
+            case "rock throw":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . b b b b . . . . . . . 
+. . . . b d d d b b . . . . . . 
+. . . b b d b d d d b b . . . . 
+. . b b d d d b d b d d b . . . 
+. . b b d d b d d d b d b b . . 
+. . . b b b d d b b b b b . . . 
+. . . . . b b b b . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
         }
         return null;
     })
