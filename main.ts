@@ -4,6 +4,26 @@ namespace SpriteKind {
     export const player2 = SpriteKind.create()
     export const consumible = SpriteKind.create()
 }
+controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
+    // Donovan put your map here
+    if (character_choice == 2) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+        assets.animation`NOJO KICK OTHER`,
+        100,
+        false
+        )
+    }
+    // Donovan put your map here
+    if (character_choice == 1) {
+        animation.runImageAnimation(
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+        assets.animation`KUJI OTHER KICK`,
+        500,
+        false
+        )
+    }
+})
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
@@ -18,25 +38,8 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
     if (character_choice == 1) {
         animation.runImageAnimation(
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
-        [img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `],
-        500,
+        assets.animation`KUJI OTHER PUNCH`,
+        100,
         false
         )
     }
@@ -57,6 +60,7 @@ function defeat (mySprite: Sprite) {
 }
 controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.Pressed, function () {
     if (info.score() == 1000) {
+        sprites.destroy(powerups)
         scene.setBackgroundImage(assets.image`Map choice screen`)
         sprites.destroy(start_up)
         sprites.destroy(button)
@@ -361,6 +365,7 @@ controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.P
             scene.setBackgroundImage(assets.image`Sky high map`)
             tiles.setCurrentTilemap(tilemap`level14`)
         }
+        sprites.destroy(powerups)
         mp.setPlayerIndicatorsVisible(true)
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).setPosition(5, 100)
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).setPosition(144, 100)
@@ -422,10 +427,10 @@ controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
         )
     }
 })
-let powerups: Sprite = null
 let mySprite: Sprite = null
 let player_1 = 0
 let map_choice = 0
+let powerups: Sprite = null
 let character_choice = 0
 let button: Sprite = null
 let start_up: Sprite = null
