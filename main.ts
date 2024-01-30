@@ -4,6 +4,10 @@ namespace SpriteKind {
     export const player2 = SpriteKind.create()
     export const consumible = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.consumible, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    info.changeLifeBy(1)
+})
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
@@ -229,6 +233,18 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
         }
     }
 })
+function defeat_2 (player_2: Sprite) {
+    sprites.destroy(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))
+    sprites.destroy(powerups)
+    tiles.setCurrentTilemap(tilemap`level21`)
+    if (character_choice == 1) {
+        scene.setBackgroundImage(assets.image`Kuji losing`)
+        game.splash("Nah id win")
+    } else {
+        scene.setBackgroundImage(assets.image`Nojo losing`)
+    }
+    return info.score()
+}
 controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
@@ -254,18 +270,6 @@ controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pres
     pause(490)
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).vy = 0
 })
-function defeat_2 (player_2: Sprite) {
-    sprites.destroy(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))
-    sprites.destroy(powerups)
-    tiles.setCurrentTilemap(tilemap`level21`)
-    if (character_choice == 1) {
-        scene.setBackgroundImage(assets.image`Kuji losing`)
-        game.splash("Nah id win")
-    } else {
-        scene.setBackgroundImage(assets.image`Nojo losing`)
-    }
-    return info.score()
-}
 function initiating_fighting (choice_screens: Image, character: Sprite) {
     blackout = sprites.create(img`
         ................................................................................................................................................................
@@ -2357,7 +2361,7 @@ if (true) {
     pause(5000)
     initiating_fighting(myImage, mySprite)
 }
-game.onUpdateInterval(5000, function () {
+game.onUpdateInterval(11000, function () {
     sprites.destroy(powerups)
 })
 game.onUpdateInterval(1000, function () {
