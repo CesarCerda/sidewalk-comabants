@@ -19,26 +19,6 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
         animation.runImageAnimation(
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
         assets.animation`KUJI OTHER KICK`,
-        500,
-        false
-        )
-    }
-})
-controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
-    // Donovan put your map here
-    if (character_choice == 1) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`no punch`,
-        100,
-        false
-        )
-    }
-    // Donovan put your map here
-    if (character_choice == 2) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`Kuji punch`,
         100,
         false
         )
@@ -115,15 +95,9 @@ controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pr
     }
     // Donovan put your map here
     if (character_choice == 2) {
-        projectile = sprites.createProjectileFromSprite(blue_and_red._pickRandom(), mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), 73, 0)
+        projectile_1 = sprites.createProjectileFromSprite(blue_and_red._pickRandom(), mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), 73, 0)
     }
     pause(2000)
-})
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
-    if (projectile.overlapsWith(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))) {
-        info.player1.changeLifeBy(-1)
-        pause(1000)
-    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.player2, function (sprite, otherSprite) {
     sprite.x += -2
@@ -514,6 +488,12 @@ controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pres
     pause(490)
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).vy = 0
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    if (otherSprite == projectile) {
+        info.player1.changeLifeBy(-1)
+        pause(1000)
+    }
+})
 function defeat_2 (player_2: Sprite) {
     sprites.destroy(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))
     sprites.destroy(powerups)
@@ -525,22 +505,22 @@ function defeat_2 (player_2: Sprite) {
     }
     return info.score()
 }
+sprites.onOverlap(SpriteKind.player2, SpriteKind.Projectile, function (sprite, otherSprite) {
+    if (otherSprite == projectile_1) {
+        info.player2.changeLifeBy(-1)
+        pause(1000)
+    }
+})
 info.player1.onLifeZero(function () {
     info.player1.setLife(defeat(mySprite))
 })
 info.player2.onLifeZero(function () {
     info.player2.setLife(defeat_2(mySprite))
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.player2, function (sprite, otherSprite) {
-    if (projectile.overlapsWith(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)))) {
-        info.player2.changeLifeBy(-1)
-        pause(1000)
-    }
-})
 controller.player1.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 1) {
-        projectile = sprites.createProjectileFromSprite(blue_and_red._pickRandom(), mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), 74, 0)
+        projectile_1 = sprites.createProjectileFromSprite(blue_and_red._pickRandom(), mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), 74, 0)
     }
     if (character_choice == 2) {
         projectile = sprites.createProjectileFromSprite(assets.image`rock throw`, mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), -73, 0)
@@ -550,6 +530,7 @@ controller.player1.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pr
 let mySprite: Sprite = null
 let map_choice = 0
 let powerups: Sprite = null
+let projectile_1: Sprite = null
 let projectile: Sprite = null
 let character_choice = 0
 let blue_and_red: Image[] = []
