@@ -7,97 +7,132 @@ namespace SpriteKind {
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
-        assets.animation`NOJO KICK OTHER`,
-        100,
-        false
-        )
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.Two), mp.MultiplayerButton.Right)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+            assets.animation`nojo kick`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+            assets.animation`NOJO KICK OTHER`,
+            100,
+            false
+            )
+        }
     }
     // Donovan put your map here
     if (character_choice == 1) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
-        assets.animation`KUJI OTHER KICK`,
-        100,
-        false
-        )
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.Two), mp.MultiplayerButton.Right)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+            assets.animation`KUJI KICK`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+            assets.animation`KUJI OTHER KICK`,
+            100,
+            false
+            )
+        }
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    if (otherSprite == projectile) {
+        info.player1.changeLifeBy(-1)
+        pause(1000)
+    }
+})
+controller.player1.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
+    // Donovan put your map here
+    if (character_choice == 1) {
+        projectile_1 = sprites.createProjectileFromSprite(blue_and_red._pickRandom(), mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), 74, 0)
+    }
+    if (character_choice == 2) {
+        projectile = sprites.createProjectileFromSprite(assets.image`rock throw`, mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), -73, 0)
+    }
+    pause(2000)
 })
 controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 1) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`no punch`,
-        100,
-        false
-        )
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.One), mp.MultiplayerButton.Left)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`NOJO OTHER PUNCH`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`no punch`,
+            100,
+            false
+            )
+        }
     }
     // Donovan put your map here
     if (character_choice == 2) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`Kuji punch`,
-        100,
-        false
-        )
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.One), mp.MultiplayerButton.Left)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`KUJI OTHER PUNCH`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`Kuji punch`,
+            100,
+            false
+            )
+        }
     }
-})
-controller.player1.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
-    // Donovan put your map here
-    if (character_choice == 2) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`Kuji jump`,
-        500,
-        false
-        )
-    }
-    // Donovan put your map here
-    if (character_choice == 1) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`Nojo jump`,
-        500,
-        false
-        )
-    }
-    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = -100
-    pause(487)
-    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = 100
-    pause(490)
-    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = 0
 })
 controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 1) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`nojo kick`,
-        100,
-        false
-        )
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.One), mp.MultiplayerButton.Left)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`NOJO KICK OTHER`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`nojo kick`,
+            100,
+            false
+            )
+        }
     }
     // Donovan put your map here
     if (character_choice == 2) {
-        animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-        assets.animation`KUJI KICK`,
-        100,
-        false
-        )
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.One), mp.MultiplayerButton.Left)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`KUJI OTHER KICK`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`KUJI KICK`,
+            100,
+            false
+            )
+        }
     }
-})
-controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
-    if (character_choice == 1) {
-        projectile = sprites.createProjectileFromSprite(assets.image`rock throw`, mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), -71, 0)
-    }
-    // Donovan put your map here
-    if (character_choice == 2) {
-        projectile_1 = sprites.createProjectileFromSprite(blue_and_red._pickRandom(), mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), 73, 0)
-    }
-    pause(2000)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.player2, function (sprite, otherSprite) {
     sprite.x += -2
@@ -130,24 +165,67 @@ function defeat (mySprite: Sprite) {
     }
     return info.score()
 }
-controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+controller.player1.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
         animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
-        assets.animation`NOJO OTHER PUNCH`,
-        100,
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+        assets.animation`Kuji jump`,
+        500,
         false
         )
     }
     // Donovan put your map here
     if (character_choice == 1) {
         animation.runImageAnimation(
-        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
-        assets.animation`KUJI OTHER PUNCH`,
-        100,
+        mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+        assets.animation`Nojo jump`,
+        500,
         false
         )
+    }
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = -100
+    pause(487)
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = 100
+    pause(490)
+    mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = 0
+})
+controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    // Donovan put your map here
+    if (character_choice == 2) {
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.Two), mp.MultiplayerButton.Right)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+            assets.animation`no punch`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+            assets.animation`NOJO OTHER PUNCH`,
+            100,
+            false
+            )
+        }
+    }
+    // Donovan put your map here
+    if (character_choice == 1) {
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.Two), mp.MultiplayerButton.Right)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+            assets.animation`Kuji punch`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)),
+            assets.animation`KUJI OTHER PUNCH`,
+            100,
+            false
+            )
+        }
     }
 })
 controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.Pressed, function () {
@@ -488,12 +566,6 @@ controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pres
     pause(490)
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).vy = 0
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    if (otherSprite == projectile) {
-        info.player1.changeLifeBy(-1)
-        pause(1000)
-    }
-})
 function defeat_2 (player_2: Sprite) {
     sprites.destroy(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))
     sprites.destroy(powerups)
@@ -514,18 +586,18 @@ sprites.onOverlap(SpriteKind.player2, SpriteKind.Projectile, function (sprite, o
 info.player1.onLifeZero(function () {
     info.player1.setLife(defeat(mySprite))
 })
-info.player2.onLifeZero(function () {
-    info.player2.setLife(defeat_2(mySprite))
-})
-controller.player1.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
-    // Donovan put your map here
+controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
     if (character_choice == 1) {
-        projectile_1 = sprites.createProjectileFromSprite(blue_and_red._pickRandom(), mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), 74, 0)
+        projectile = sprites.createProjectileFromSprite(assets.image`rock throw`, mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), -71, 0)
     }
+    // Donovan put your map here
     if (character_choice == 2) {
-        projectile = sprites.createProjectileFromSprite(assets.image`rock throw`, mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), -73, 0)
+        projectile_1 = sprites.createProjectileFromSprite(blue_and_red._pickRandom(), mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), 73, 0)
     }
     pause(2000)
+})
+info.player2.onLifeZero(function () {
+    info.player2.setLife(defeat_2(mySprite))
 })
 let mySprite: Sprite = null
 let map_choice = 0
