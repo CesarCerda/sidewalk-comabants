@@ -4,10 +4,6 @@ namespace SpriteKind {
     export const player2 = SpriteKind.create()
     export const consumible = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.consumible, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite)
-    info.changeLifeBy(1)
-})
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
@@ -44,12 +40,6 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
             false
             )
         }
-    }
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    if (otherSprite == projectile) {
-        info.player1.changeLifeBy(-1)
-        pause(1000)
     }
 })
 controller.player1.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
@@ -94,44 +84,6 @@ controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
             animation.runImageAnimation(
             mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
             assets.animation`Kuji punch`,
-            100,
-            false
-            )
-        }
-    }
-})
-controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
-    // Donovan put your map here
-    if (character_choice == 1) {
-        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.One), mp.MultiplayerButton.Left)) {
-            animation.runImageAnimation(
-            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-            assets.animation`NOJO KICK OTHER`,
-            100,
-            false
-            )
-        } else {
-            animation.runImageAnimation(
-            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-            assets.animation`nojo kick`,
-            100,
-            false
-            )
-        }
-    }
-    // Donovan put your map here
-    if (character_choice == 2) {
-        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.One), mp.MultiplayerButton.Left)) {
-            animation.runImageAnimation(
-            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-            assets.animation`KUJI OTHER KICK`,
-            100,
-            false
-            )
-        } else {
-            animation.runImageAnimation(
-            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
-            assets.animation`KUJI KICK`,
             100,
             false
             )
@@ -407,6 +359,28 @@ function Character_selections (mySprite: Sprite) {
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).setPosition(5, 100)
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).setPosition(144, 100)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    // Donovan put your map here
+    if (character_choice == 1) {
+        if (otherSprite == projectile) {
+            info.player1.changeLifeBy(-1)
+            pause(1000)
+        } else {
+            info.player1.changeLifeBy(0)
+            pause(1000)
+        }
+    }
+    // Donovan put your map here
+    if (character_choice == 2) {
+        if (otherSprite == projectile_1) {
+            info.player1.changeLifeBy(-1)
+            pause(1000)
+        } else {
+            info.player1.changeLifeBy(0)
+            pause(1000)
+        }
+    }
+})
 function defeat_2 (player_2: Sprite) {
     sprites.destroy(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))
     sprites.destroy(powerups)
@@ -2288,9 +2262,25 @@ function initiating_fighting (choice_screens: Image, character: Sprite) {
     }
 }
 sprites.onOverlap(SpriteKind.player2, SpriteKind.Projectile, function (sprite, otherSprite) {
-    if (otherSprite == projectile_1) {
-        info.player2.changeLifeBy(-1)
-        pause(1000)
+    // Donovan put your map here
+    if (character_choice == 1) {
+        if (otherSprite == projectile_1) {
+            info.player2.changeLifeBy(-1)
+            pause(1000)
+        } else {
+            info.player2.changeLifeBy(0)
+            pause(1000)
+        }
+    }
+    // Donovan put your map here
+    if (character_choice == 2) {
+        if (otherSprite == projectile) {
+            info.player2.changeLifeBy(-1)
+            pause(1000)
+        } else {
+            info.player2.changeLifeBy(0)
+            pause(1000)
+        }
     }
 })
 info.player1.onLifeZero(function () {
@@ -2309,11 +2299,53 @@ controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pr
 info.player2.onLifeZero(function () {
     defeat_2(mySprite)
 })
+controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
+    // Donovan put your map here
+    if (character_choice == 1) {
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.One), mp.MultiplayerButton.Left)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`NOJO KICK OTHER`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`nojo kick`,
+            100,
+            false
+            )
+        }
+    }
+    // Donovan put your map here
+    if (character_choice == 2) {
+        if (mp.isButtonPressed(mp.playerSelector(mp.PlayerNumber.One), mp.MultiplayerButton.Left)) {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`KUJI OTHER KICK`,
+            100,
+            false
+            )
+        } else {
+            animation.runImageAnimation(
+            mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
+            assets.animation`KUJI KICK`,
+            100,
+            false
+            )
+        }
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.consumible, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    info.changeLifeBy(1)
+})
 let map_choice = 0
 let blackout: Sprite = null
 let powerups: Sprite = null
-let projectile_1: Sprite = null
 let projectile: Sprite = null
+let projectile_1: Sprite = null
 let character_choice = 0
 let mySprite: Sprite = null
 let blue_and_red: Image[] = []
@@ -2368,12 +2400,12 @@ if (true) {
 game.onUpdateInterval(11000, function () {
     sprites.destroy(powerups)
 })
+game.onUpdateInterval(10000, function () {
+    powerups = sprites.create(list._pickRandom(), SpriteKind.consumible)
+    powerups.setPosition(randint(0, 150), 100)
+})
 game.onUpdateInterval(1000, function () {
     if (mp.isConnected(mp.playerSelector(mp.PlayerNumber.Two))) {
         info.changeScoreBy(1)
     }
-})
-game.onUpdateInterval(10000, function () {
-    powerups = sprites.create(list._pickRandom(), SpriteKind.consumible)
-    powerups.setPosition(randint(0, 150), 100)
 })
