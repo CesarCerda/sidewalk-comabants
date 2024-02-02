@@ -1200,6 +1200,25 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image16":
+            case "finger":return img`
+. . . . . . . . . . . . . . . . 
+. . . . c c c . . . . . . . . . 
+. . . . c f c . . . . . . . . . 
+. . . . c f f c . . . . . . . . 
+. . . . c c f c . . . . . . . . 
+. . . . . c f c c . . . . . . . 
+. . . . . c f f c . . . . . . . 
+. . . . . c f f c . . . . . . . 
+. . . . . c f f c . . . . . . . 
+. . . . . c f f c . . . . . . . 
+. . . . . c f f c . . . . . . . 
+. . . . c c f f c . . . . . . . 
+. . . . c c f f c c . . . . . . 
+. . . . c f f f f c . . . . . . 
+. . . . c f f f f c . . . . . . 
+. . . . c c c c c c . . . . . . 
+`;
         }
         return null;
     })
