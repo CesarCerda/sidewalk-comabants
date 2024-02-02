@@ -2409,3 +2409,8 @@ game.onUpdateInterval(1000, function () {
         info.changeScoreBy(1)
     }
 })
+game.onUpdateInterval(10000, function () {
+    if (Math.percentChance(2)) {
+    	
+    }
+})
