@@ -2341,7 +2341,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.consumible, function (sprite, ot
     sprites.destroy(otherSprite)
     info.changeLifeBy(1)
 })
-let hidden_win: Sprite = null
 let map_choice = 0
 let blackout: Sprite = null
 let powerups: Sprite = null
@@ -2408,10 +2407,5 @@ game.onUpdateInterval(10000, function () {
 game.onUpdateInterval(1000, function () {
     if (mp.isConnected(mp.playerSelector(mp.PlayerNumber.Two))) {
         info.changeScoreBy(1)
-    }
-})
-game.onUpdateInterval(10000, function () {
-    if (Math.percentChance(2)) {
-        hidden_win = sprites.create(assets.image`finger`, SpriteKind.Player)
     }
 })

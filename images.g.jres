@@ -84,11 +84,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "rock throw"
     },
-    "image16": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDMDAAAwMzMwP/MzMzM/M/A/P//////zwDAzP/////PAADAzMzM/M8AAAAAAADMzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "finger"
-    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
