@@ -2726,8 +2726,8 @@ mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One), 100, 0)
 mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Two), 100, 0)
 let list = [assets.image`medkit`, assets.image`band aid`, assets.image`speed boost`]
 blue_and_red = [assets.image`BLUE`, assets.image`RED`]
-info.player1.setLife(5)
-info.player2.setLife(5)
+info.player1.setLife(30)
+info.player2.setLife(30)
 if (true) {
     let myImage: Image = null
     pause(5000)
