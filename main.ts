@@ -2740,13 +2740,8 @@ game.onUpdateInterval(10000, function () {
     powerups = sprites.create(list._pickRandom(), SpriteKind.consumible)
     powerups.setPosition(randint(0, 150), 100)
 })
-game.onUpdateInterval(1000, function () {
-    if (mp.isConnected(mp.playerSelector(mp.PlayerNumber.Two))) {
-        info.changeScoreBy(1)
-    }
-})
 game.onUpdateInterval(10000, function () {
-    if (Math.percentChance(100)) {
+    if (Math.percentChance(2)) {
         secret_win = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . 5 . . . . . . d . . . . . . 
@@ -2766,5 +2761,10 @@ game.onUpdateInterval(10000, function () {
             . . . . c c c c c c c . . . . . 
             `, SpriteKind.secret)
         secret_win.setPosition(randint(0, 150), 100)
+    }
+})
+game.onUpdateInterval(1000, function () {
+    if (mp.isConnected(mp.playerSelector(mp.PlayerNumber.Two))) {
+        info.changeScoreBy(1)
     }
 })
