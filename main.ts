@@ -186,6 +186,18 @@ function defeat (mySprite: Sprite) {
     pause(1000)
     game.splash(info.score())
 }
+sprites.onOverlap(SpriteKind.player2, SpriteKind.powerJ, function (sprite, otherSprite) {
+    // Donovan put your map here
+    if (character_choice == 1) {
+        info.player2.changeLifeBy(0)
+    } else {
+        // Donovan put your map here
+        if (character_choice == 2) {
+            sprites.destroy(super_kuji)
+            info.player2.changeLifeBy(-30)
+        }
+    }
+})
 controller.player1.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
@@ -216,7 +228,7 @@ sprites.onOverlap(SpriteKind.player2, SpriteKind.secret, function (sprite, other
     // Donovan put your map here
     if (character_choice == 2) {
         super_nojo = sprites.create(assets.image`Hollow purple`, SpriteKind.po0werN)
-        super_nojo.setPosition(105, 140)
+        super_nojo.setPosition(144, 80)
         super_nojo.setVelocity(-30, 0)
     }
     // Donovan put your map here
@@ -348,7 +360,7 @@ sprites.onOverlap(SpriteKind.player2, SpriteKind.secret, function (sprite, other
             ...................................ff.............................................................ffff2222222ff........f22222
             ................................ffffff......................................................fffffff2222222222f.........f22222
             `, SpriteKind.powerJ)
-        super_kuji.setPosition(105, 140)
+        super_kuji.setPosition(144, 80)
         super_kuji.setVelocity(-31, 0)
     }
 })
@@ -563,6 +575,18 @@ function Character_selections (mySprite: Sprite) {
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).setPosition(5, 100)
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).setPosition(144, 100)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.powerJ, function (sprite, otherSprite) {
+    // Donovan put your map here
+    if (character_choice == 2) {
+        info.player1.changeLifeBy(0)
+    } else {
+        // Donovan put your map here
+        if (character_choice == 1) {
+            sprites.destroy(super_kuji)
+            info.player1.changeLifeBy(-30)
+        }
+    }
+})
 function defeat_2 (player_2: Sprite) {
     sprites.destroy(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))
     sprites.destroy(powerups)
@@ -576,6 +600,18 @@ function defeat_2 (player_2: Sprite) {
     pause(1000)
     game.splash(info.score())
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.po0werN, function (sprite, otherSprite) {
+    // Donovan put your map here
+    if (character_choice == 1) {
+        info.player1.changeLifeBy(0)
+    } else {
+        // Donovan put your map here
+        if (character_choice == 2) {
+            sprites.destroy(super_nojo)
+            info.player1.changeLifeBy(-30)
+        }
+    }
+})
 controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
     if (character_choice == 2) {
@@ -2486,7 +2522,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.secret, function (sprite, otherS
     // Donovan put your map here
     if (character_choice == 1) {
         super_nojo = sprites.create(assets.image`Hollow purple`, SpriteKind.po0werN)
-        super_nojo.setPosition(0, 140)
+        super_nojo.setPosition(0, 80)
         super_nojo.setVelocity(29, 0)
     }
     // Donovan put your map here
@@ -2618,7 +2654,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.secret, function (sprite, otherS
             ...................................ff.............................................................ffff2222222ff........f22222
             ................................ffffff......................................................fffffff2222222222f.........f22222
             `, SpriteKind.powerJ)
-        super_kuji.setPosition(0, 140)
+        super_kuji.setPosition(0, 80)
         super_kuji.setVelocity(31, 0)
     }
 })
@@ -2626,11 +2662,23 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.consumible, function (sprite, ot
     sprites.destroy(otherSprite)
     info.changeLifeBy(1)
 })
+sprites.onOverlap(SpriteKind.player2, SpriteKind.po0werN, function (sprite, otherSprite) {
+    // Donovan put your map here
+    if (character_choice == 2) {
+        info.player2.changeLifeBy(0)
+    } else {
+        // Donovan put your map here
+        if (character_choice == 1) {
+            sprites.destroy(super_nojo)
+            info.player2.changeLifeBy(-30)
+        }
+    }
+})
 let map_choice = 0
 let blackout: Sprite = null
-let super_kuji: Sprite = null
 let super_nojo: Sprite = null
 let secret_win: Sprite = null
+let super_kuji: Sprite = null
 let powerups: Sprite = null
 let projectile_1: Sprite = null
 let projectile: Sprite = null
