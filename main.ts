@@ -3,6 +3,8 @@ namespace SpriteKind {
     export const animation = SpriteKind.create()
     export const player2 = SpriteKind.create()
     export const consumible = SpriteKind.create()
+    export const secret = SpriteKind.create()
+    export const po0werN = SpriteKind.create()
 }
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
@@ -207,6 +209,14 @@ controller.player1.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pres
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = 100
     pause(490)
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = 0
+})
+sprites.onOverlap(SpriteKind.player2, SpriteKind.secret, function (sprite, otherSprite) {
+    // Donovan put your map here
+    if (character_choice == 2) {
+        super_nojo = sprites.create(assets.image`Hollow purple`, SpriteKind.po0werN)
+        super_nojo.setPosition(105, 110)
+        super_nojo.setVelocity(13, 0)
+    }
 })
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     // Donovan put your map here
@@ -2337,6 +2347,19 @@ controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pr
 info.player2.onLifeZero(function () {
     defeat_2(mySprite)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.secret, function (sprite, otherSprite) {
+    sprites.destroy(secret_win)
+    // Donovan put your map here
+    if (character_choice == 1) {
+        super_nojo = sprites.create(assets.image`Hollow purple`, SpriteKind.po0werN)
+        super_nojo.setPosition(0, 110)
+        super_nojo.setVelocity(13, 0)
+    }
+    // Donovan put your map here
+    if (character_choice == 2) {
+    	
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.consumible, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
     info.changeLifeBy(1)
@@ -2344,6 +2367,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.consumible, function (sprite, ot
 let secret_win: Sprite = null
 let map_choice = 0
 let blackout: Sprite = null
+let super_nojo: Sprite = null
 let powerups: Sprite = null
 let projectile_1: Sprite = null
 let projectile: Sprite = null
@@ -2411,7 +2435,7 @@ game.onUpdateInterval(1000, function () {
     }
 })
 game.onUpdateInterval(10000, function () {
-    if (Math.percentChance(2)) {
+    if (Math.percentChance(100)) {
         secret_win = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . 5 . . . . . . d . . . . . . 
@@ -2429,6 +2453,7 @@ game.onUpdateInterval(10000, function () {
             . 5 . . c f f f f f c . . . . . 
             . . . . c f f f f f c . . . . . 
             . . . . c c c c c c c . . . . . 
-            `, SpriteKind.Player)
+            `, SpriteKind.secret)
+        secret_win.setPosition(randint(0, 150), 100)
     }
 })
